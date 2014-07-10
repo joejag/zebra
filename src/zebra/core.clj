@@ -1,6 +1,57 @@
 (ns zebra.core)
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defn new-house []
+  {:color nil :nationality nil :pet nil :drinks nil :smokes nil, :location nil})
+
+(def house-colors ["red" "green" "ivory" "yellow", "blue"])
+(def nationalities ["englishman" "spaniard" "ukrainian" "norweigian" "japenese"])
+(def pets ["dog" "snails" "fox" "horse" "zebra"])
+(def drinks ["coffee" "tea" "milk" "orange" "water"])
+(def smokes ["old gold" "kools" "chesterfields" "lucky strike" "parliaments"])
+(def locaation [1 2 3 4 5])
+
+(def facts
+  [
+    ; there are 5 houses
+    {:nationality "englishman"    :color    "red"}
+    {:nationality "spainiard"     :pet      "dog"}
+    {:drinks      "coffee"        :color    "green"}
+    {:nationality "ukrainian"     :drinks   "tea"}
+    {:color       "green"         :location "right to the ivory house"}
+    {:smokes      "old gold"      :pet      "snails"}
+    {:smokes      "kools"         :color    "yellow"}
+    {:drinks      "milk"          :location "middle house"}
+    {:nationality "norwegian"     :location "first house"}
+    {:smokes      "chesterfields" :location "next to the house with the fox"}
+    {:smokes      "kools"         :location "next to the house with the horse"}
+    {:smokes      "lucky strike"  :drinks   "orange"}
+    {:nationality "japenese"      :smokes   "parliaments"}
+    {:nationality "norwegian"     :location "next to the blue house"}
+    ])
+
+
+
+;1. There are five houses.
+;2. The Englishman lives in the red house.
+;3. The Spaniard owns the dog.
+;4. Coffee is drunk in the green house.
+;5. The Ukrainian drinks tea.
+;6. The green house is immediately to the right of the ivory house.
+;7. The Old Gold smoker owns snails.
+;8. Kools are smoked in the yellow house
+;9. Milk is drunk in the middle house.
+;10. The Norwegian lives in the first house.
+;11. The man who smokes Chesterfields lives in the house next to the man with the fox.
+;12. Kools are smoked in the house next to the house where the horse is kept.
+;13. The Lucky Strike smoker drinks orange juice.
+;14. The Japanese smokes Parliaments.
+;15. The Norwegian lives next to the blue house.
+
+;Now, who drinks water? Who owns the zebra?
+
+;In the interest of clarity, it must be added that each of the five houses is painted a different color,
+; and their inhabitants are of different national extractions, own different pets, drink different beverages
+; and smoke different brands of American cigarets. One other thing: in statement 6, right means your right.
+
+(defn -main [& _]
+  (println "Hello, World!"))

@@ -1,8 +1,5 @@
 (ns zebra.core)
 
-(defn new-house []
-  {:color nil :nationality nil :pet nil :drinks nil :smokes nil, :location nil})
-
 (def house-colors ["red" "green" "ivory" "yellow", "blue"])
 (def nationalities ["englishman" "spaniard" "ukrainian" "norweigian" "japenese"])
 (def pets ["dog" "snails" "fox" "horse" "zebra"])
@@ -11,32 +8,7 @@
 (def locations ["first" "middle" "right to the ivory house" "next to the house with the fox"
                 "next to the house with the horse" "next to the blue house"])
 
-(def facts
-  [
-    ; there are 5 houses
-    {:nationality "englishman"    :color    "red"}
-    {:nationality "spainiard"     :pet      "dog"}
-    {:drinks      "coffee"        :color    "green"}
-    {:nationality "ukrainian"     :drinks   "tea"}
-    {:color       "green"         :location "right to the ivory house"}
-    {:smokes      "old gold"      :pet      "snails"}
-    {:smokes      "kools"         :color    "yellow"}
-    {:drinks      "milk"          :location "middle house"}
-    {:nationality "norwegian"     :location "first house"}
-    {:smokes      "chesterfields" :location "next to the house with the fox"}
-    {:smokes      "kools"         :location "next to the house with the horse"}
-    {:smokes      "lucky strike"  :drinks   "orange"}
-    {:nationality "japenese"      :smokes   "parliaments"}
-    {:nationality "norwegian"     :location "next to the blue house"}
-    ])
 
-
-(defn possiblities [nationality]
-  {:color house-colors
-   :pets  pets
-   :drinks drinks
-   :smokes smokes
-   :location locations})
 
 ;1. There are five houses.
 ;2. The Englishman lives in the red house.

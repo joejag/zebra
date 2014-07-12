@@ -1,30 +1,33 @@
 (ns zebra.core-test
   (:use midje.sweet)
-  (:require [zebra.core :as subject]))
+  (:require [zebra.core :as subject]
+            [zebra.rules :refer :all]))
 
-(def nationalities ["english" "spanish"])
-(def pets          ["dog" "cat"])
-(def colors        ["blue" "red"])
+;{:color nil :nationality nil :pet nil :drinks nil :smokes nil, :location nil}
 
-(def known-facts
-  [{:nationality "english" :pet   "dog"}
-   {:pet         "cat"     :color "red"}])
+(defn legal? [suggestion rules]
+  (every? (fn [rule] (rule suggestion)) rules))
 
-(defn possibilties [constraint]
-  {:nationality (if (:nationality constraint) [(:nationality constraint)] nationalities)
-   :pet        (if (:pet constraint) [(:pet constraint)] pets)
-   :color      (if (:color constraint) [(:color constraint)] colors)
-   })
+(fact "is legal when simple rule says so"
+      (legal? anything [(fn [_] true)]) => true)
 
+(fact "is illegal when simple rule says so"
+      (legal? anything [(fn [_] false)]) => false)
 
-(fact "possibilites exist outside some known constraints"
-      (possibilties {:nationality "english" :pet "dog"}) => {:nationality ["english"] :pet ["dog"] :color ["blue" "red"]})
-
-(defn remove-possibilties
-  [start known-facts]
-  start
-  )
-
-(fact "possibilties can be removed by other known facts"
-      (remove-possibilties {:nationality ["english"] :pet ["dog"] :color ["blue" "red"]} [{:pet "cat" :color "red"}]) =>
-      {:nationality ["english"] :pet ["dog"] :color ["blue"]})
+(facts "legality"
+       (fact "legal game"
+             (legal? [{:nationality "english" :color "red" :pet "cat"}
+                      {:nationality "spaniard" :color "blue" :pet "dog"}]
+                     [
+                       the-englishman-must-live-in-the-red-house
+                       the-spaniard-owns-the-dog
+                       ]
+                     ) => true)
+       (fact "illegal game"
+             (legal? [{:nationality "english" :color "red" :pet "dog"}
+                      {:nationality "spaniard" :color nil :pet "dog"}]
+                     [
+                       the-englishman-must-live-in-the-red-house
+                       the-spaniard-owns-the-dog
+                       ]
+                     ) => false))

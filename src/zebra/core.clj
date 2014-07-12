@@ -8,7 +8,8 @@
 (def pets ["dog" "snails" "fox" "horse" "zebra"])
 (def drinks ["coffee" "tea" "milk" "orange" "water"])
 (def smokes ["old gold" "kools" "chesterfields" "lucky strike" "parliaments"])
-(def locaation [1 2 3 4 5])
+(def locations ["first" "middle" "right to the ivory house" "next to the house with the fox"
+                "next to the house with the horse" "next to the blue house"])
 
 (def facts
   [
@@ -30,6 +31,12 @@
     ])
 
 
+(defn possiblities [nationality]
+  {:color house-colors
+   :pets  pets
+   :drinks drinks
+   :smokes smokes
+   :location locations})
 
 ;1. There are five houses.
 ;2. The Englishman lives in the red house.

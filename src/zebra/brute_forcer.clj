@@ -41,14 +41,13 @@
       (assoc cleared-state index (change-answer active-list possibilities)))))
 
 ; brute force
-
 (defn brute-force-progressor [state legal-checker possibilities]
   (if (legal-checker state)
     (next-possibility-list state possibilities)
     (change-answer-list state possibilities)))
 
 (defn finished? [state legal-checker]
-  (and (legal-checker state) (every? (fn [coll] (every? (fn [[_ v]] (not (nil? v))) coll)) state)))
+  (and (legal-checker state) (every? (fn [coll] (not-any? has-nil-value? coll)) state)))
 
 (defn impossible? [state legal-checker possibilities]
   (if-not (legal-checker state)

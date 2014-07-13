@@ -1,4 +1,5 @@
-(ns zebra.rules)
+(ns zebra.rules
+  (:require [zebra.seq-helpers :refer [find-first]]))
 
 (defn no-dupes [houses]
   (let [merged-list (remove (fn [[_ v]] (nil? v)) (apply concat (map vec houses)))]
@@ -44,3 +45,12 @@
 (defn the-japenese-smokes-parliaments [houses]
   (every? (fn [{smokes :smokes nationality :nationality}]
             (co-exist? [smokes nationality] (= smokes "parliaments") (= nationality "japanese"))) houses))
+
+(defn- hash-containing-value [coll attribute expected]
+  (find-first (fn [[_ coll]] (= expected (attribute coll))) (map-indexed vector coll)))
+
+(defn the-green-house-is-immediately-to-the-right-of-the-ivory-house [houses]
+  (let [[green-index _] (hash-containing-value houses :color "green")
+        [ivory-index _] (hash-containing-value houses :color "ivory")]
+    (if (not-any? nil? [green-index ivory-index])
+      (= (dec green-index) ivory-index)) true))

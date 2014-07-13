@@ -31,7 +31,9 @@
            rules/the-old-gold-smoker-own-snails
            rules/kools-are-smoked-in-the-yellow-house
            rules/the-lucky-strike-smoker-drinks-orange-juice
-           rules/the-japenese-smokes-parliaments]))
+           rules/the-japenese-smokes-parliaments
+           rules/the-green-house-is-immediately-to-the-right-of-the-ivory-house
+           ]))
 
 (defn go [state]
   (if (solver/finished? state zebra-legal?)

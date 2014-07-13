@@ -65,3 +65,9 @@
              (the-japenese-smokes-parliaments [{:smokes "parliaments" :nationality "japanese"}]) => true)
        (fact "illegal"
              (the-japenese-smokes-parliaments [{:smokes "parliaments" :nationality "spaniard"}]) => false))
+
+
+(facts "The green house is immediately to the right of the ivory house."
+       (fact "legal"
+             (the-green-house-is-immediately-to-the-right-of-the-ivory-house
+               [{:color "ivory"} {:color "green"}]) => true))

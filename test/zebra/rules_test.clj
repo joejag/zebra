@@ -4,9 +4,9 @@
 
 (facts "The Englishman lives in the red house."
        (fact "legal"
-             (the-englishman-must-live-in-the-red-house [{:color "red" :nationality "english"}]) => true)
+             (the-englishman-must-live-in-the-red-house [{:color "red" :nationality "englishman"}]) => true)
        (fact "illegal - englishman lives in a blue house"
-             (the-englishman-must-live-in-the-red-house [{:color "blue" :nationality "english"}]) => false)
+             (the-englishman-must-live-in-the-red-house [{:color "blue" :nationality "englishman"}]) => false)
        (fact "illegal - spaniard cannot live in the red house"
              (the-englishman-must-live-in-the-red-house [{:color "red" :nationality "spaniard"}]) => false))
 
@@ -18,7 +18,7 @@
        (fact "illegal - spaniard owns the fox"
              (the-spaniard-owns-the-dog [{:pet "fox" :nationality "spaniard"}]) => false)
        (fact "illegal - englishman cannot own the dog"
-             (the-spaniard-owns-the-dog [{:pet "dog" :nationality "english"}]) => false))
+             (the-spaniard-owns-the-dog [{:pet "dog" :nationality "englishman"}]) => false))
 
 (facts "no duplicates are allowed"
        (fact "legal - no dupes"

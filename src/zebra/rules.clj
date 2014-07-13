@@ -2,8 +2,8 @@
 
 (defn the-englishman-must-live-in-the-red-house [houses]
   (every? (fn [{nationality :nationality color :color}]
-            (if (and nationality color (or (= "english" nationality) (= "red" color)))
-              (and (= "english" nationality) (= "red" color))
+            (if (and nationality color (or (= "englishman" nationality) (= "red" color)))
+              (and (= "englishman" nationality) (= "red" color))
               true)) houses))
 
 (defn the-spaniard-owns-the-dog [houses]

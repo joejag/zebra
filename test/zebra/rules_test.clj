@@ -86,8 +86,55 @@
              (milk-is-drunk-in-the-middle-house
                [{} {} {} {} {}]) => true))
 
+(facts "The Norwegian lives in the first house."
+       (fact "legal"
+             (the-norwegian-lives-in-the-first-house
+               [{:nationality "norwegian"} {} {} {} {}]) => true)
+       (fact "illegal"
+             (the-norwegian-lives-in-the-first-house
+               [{} {} {} {} {:nationality "norwegian"}]) => false)
+       (fact "legal"
+             (the-norwegian-lives-in-the-first-house
+               [{} {} {} {} {}]) => true))
 
+(facts "The man who smokes Chesterfields lives in the house next to the man with the fox."
+       (fact "legal"
+             (the-man-who-smokes-chesterfields-lives-in-the-house-next-to-the-man-with-the-fox
+               [{:smokes "chesterfields"} {:pet "fox"} {} {} {}]) => true)
+       (fact "legal"
+             (the-man-who-smokes-chesterfields-lives-in-the-house-next-to-the-man-with-the-fox
+               [{} {:pet "fox"} {:smokes "chesterfields"} {} {}]) => true)
+       (fact "illegal"
+             (the-man-who-smokes-chesterfields-lives-in-the-house-next-to-the-man-with-the-fox
+               [{} {} {:pet "fox"} {} {:smokes "chesterfields"}]) => false)
+       (fact "legal"
+             (the-man-who-smokes-chesterfields-lives-in-the-house-next-to-the-man-with-the-fox
+               [{} {} {} {} {}]) => true))
 
+(facts "Kools are smoked in the house next to the house where the horse is kept."
+       (fact "legal"
+             (kools-are-smoked-in-the-house-next-to-the-houses-where-the-horse-is-kept
+               [{:smokes "kools"} {:pet "horse"} {} {} {}]) => true)
+       (fact "legal"
+             (kools-are-smoked-in-the-house-next-to-the-houses-where-the-horse-is-kept
+               [{} {:pet "horse"} {:smokes "kools"} {} {}]) => true)
+       (fact "illegal"
+             (kools-are-smoked-in-the-house-next-to-the-houses-where-the-horse-is-kept
+               [{} {} {:pet "horse"} {} {:smokes "kools"}]) => false)
+       (fact "legal"
+             (kools-are-smoked-in-the-house-next-to-the-houses-where-the-horse-is-kept
+               [{} {} {} {} {}]) => true))
 
-
-
+(facts "The Norwegian lives next to the blue house."
+       (fact "legal"
+             (the-norwegian-lives-next-to-the-blue-house
+               [{:nationality "norwegian"} {:color "blue"} {} {} {}]) => true)
+       (fact "legal"
+             (the-norwegian-lives-next-to-the-blue-house
+               [{} {:color "blue"} {:nationality "norwegian"} {} {}]) => true)
+       (fact "illegal"
+             (the-norwegian-lives-next-to-the-blue-house
+               [{} {} {:color "blue"} {} {:nationality "norwegian"}]) => false)
+       (fact "legal"
+             (the-norwegian-lives-next-to-the-blue-house
+               [{} {} {} {} {}]) => true))

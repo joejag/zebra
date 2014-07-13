@@ -4,7 +4,7 @@
 
 (def possibilties
   {:color       ["red" "green" "ivory" "yellow", "blue"]
-   :nationality ["englishman" "spaniard" "ukrainian" "norweigian" "japanese"]
+   :nationality ["englishman" "spaniard" "ukrainian" "norwegian" "japanese"]
    :pet         ["dog" "snails" "fox" "horse" "zebra"]
    :drinks      ["coffee" "tea" "milk" "orange" "water"]
    :smokes      ["old gold" "kools" "chesterfields" "lucky strike" "parliaments"]
@@ -34,6 +34,10 @@
            rules/the-japenese-smokes-parliaments
            rules/the-green-house-is-immediately-to-the-right-of-the-ivory-house
            rules/milk-is-drunk-in-the-middle-house
+           rules/the-norwegian-lives-in-the-first-house
+           rules/the-man-who-smokes-chesterfields-lives-in-the-house-next-to-the-man-with-the-fox
+           rules/kools-are-smoked-in-the-house-next-to-the-houses-where-the-horse-is-kept
+           rules/the-norwegian-lives-next-to-the-blue-house
            ]))
 
 (defn go [state]

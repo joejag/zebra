@@ -60,3 +60,30 @@
   (let [[milk-index _] (hash-containing-value houses :drinks "milk")]
     (if (not (nil? milk-index))
       (= 2 milk-index) true)))
+
+(defn the-norwegian-lives-in-the-first-house [houses]
+  (let [[norwegian-index _] (hash-containing-value houses :nationality "norwegian")]
+    (if (not (nil? norwegian-index))
+      (= 0 norwegian-index) true)))
+
+(defn the-man-who-smokes-chesterfields-lives-in-the-house-next-to-the-man-with-the-fox [houses]
+  (let [[chesterfields-index _] (hash-containing-value houses :smokes "chesterfields")
+        [fox-index _] (hash-containing-value houses :pet "fox")]
+    (if (not-any? nil? [chesterfields-index fox-index])
+      (or (= (dec chesterfields-index) fox-index) (= (inc chesterfields-index) fox-index))
+      true)))
+
+(defn kools-are-smoked-in-the-house-next-to-the-houses-where-the-horse-is-kept [houses]
+  (let [[kools-index _] (hash-containing-value houses :smokes "kools")
+        [horse-index _] (hash-containing-value houses :pet "horse")]
+    (if (not-any? nil? [kools-index horse-index])
+      (or (= (dec kools-index) horse-index) (= (inc kools-index) horse-index))
+      true)))
+
+
+(defn the-norwegian-lives-next-to-the-blue-house [houses]
+  (let [[nationality-index _] (hash-containing-value houses :nationality "norwegian")
+        [color-index _] (hash-containing-value houses :color "blue")]
+    (if (not-any? nil? [nationality-index color-index])
+      (or (= (dec nationality-index) color-index) (= (inc nationality-index) color-index))
+      true)))

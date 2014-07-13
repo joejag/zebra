@@ -25,7 +25,13 @@
   (legal? suggestion
           [rules/no-dupes
            rules/the-englishman-must-live-in-the-red-house
-           rules/the-spaniard-owns-the-dog]))
+           rules/the-spaniard-owns-the-dog
+           rules/coffee-is-drunk-in-the-green-house
+           rules/the-ukrainian-drinks-tea
+           rules/the-old-gold-smoker-own-snails
+           rules/kools-are-smoked-in-the-yellow-house
+           rules/the-lucky-strike-smoker-drinks-orange-juice
+           rules/the-japenese-smokes-parliaments]))
 
 (defn go [state]
   (if (solver/finished? state zebra-legal?)

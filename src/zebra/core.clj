@@ -4,7 +4,7 @@
 
 (def possibilties
   {:color       ["red" "green" "ivory" "yellow", "blue"]
-   :nationality ["englishman" "spaniard" "ukrainian" "norweigian" "japenese"]
+   :nationality ["englishman" "spaniard" "ukrainian" "norweigian" "japanese"]
    :pet         ["dog" "snails" "fox" "horse" "zebra"]
    :drinks      ["coffee" "tea" "milk" "orange" "water"]
    :smokes      ["old gold" "kools" "chesterfields" "lucky strike" "parliaments"]
@@ -12,11 +12,11 @@
                  "next to the house with the horse" "next to the blue house"]})
 
 (def starting-state
-  [{:color nil :nationality nil :pet nil :drinks nil :smokes nil, :location nil}
-   {:color nil :nationality nil :pet nil :drinks nil :smokes nil, :location nil}
-   {:color nil :nationality nil :pet nil :drinks nil :smokes nil, :location nil}
-   {:color nil :nationality nil :pet nil :drinks nil :smokes nil, :location nil}
-   {:color nil :nationality nil :pet nil :drinks nil :smokes nil, :location nil}])
+  [{:color nil :nationality nil :pet nil :drinks nil :smokes nil}
+   {:color nil :nationality nil :pet nil :drinks nil :smokes nil}
+   {:color nil :nationality nil :pet nil :drinks nil :smokes nil}
+   {:color nil :nationality nil :pet nil :drinks nil :smokes nil}
+   {:color nil :nationality nil :pet nil :drinks nil :smokes nil}])
 
 (defn legal? [suggestion rules]
   (every? (fn [rule] (rule suggestion)) rules))

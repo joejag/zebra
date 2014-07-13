@@ -49,3 +49,8 @@
 
 (defn finished? [state legal-checker]
   (and (legal-checker state) (every? (fn [coll] (every? (fn [[_ v]] (not (nil? v))) coll)) state)))
+
+(defn impossible? [state legal-checker possibilities]
+  (if-not (legal-checker state)
+    (nil? (find-last-updateable-list state possibilities))
+    false))

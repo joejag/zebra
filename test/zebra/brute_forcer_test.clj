@@ -27,8 +27,6 @@
              (next-possibility-list [(sorted-map :a 1 :b 1) (sorted-map :a nil :b nil)] possibilities)
              => [{:a 1 :b 1} {:a 1 :b nil}]))
 
-
-
 (facts "overarching runner - handle changing the answer"
        (fact "it can choose the next option - updates first"
              (change-answer-list [(sorted-map :a 1 :b 4) (sorted-map :a nil :b nil)] possibilities)

@@ -19,3 +19,11 @@
              (the-spaniard-owns-the-dog [{:pet "fox" :nationality "spaniard"}]) => false)
        (fact "illegal - englishman cannot own the dog"
              (the-spaniard-owns-the-dog [{:pet "dog" :nationality "english"}]) => false))
+
+(facts "no duplicates are allowed"
+       (fact "legal - no dupes"
+             (no-dupes [{:pet "dog"} {:pet "cat"}]) => true)
+       (fact "legal - no dupes with nils"
+             (no-dupes [{:pet "dog" :nationality nil} {:pet nil :nationality nil}]) => true)
+       (fact "illegal - dupes"
+             (no-dupes [{:pet "dog"} {:pet "dog"}]) => false))

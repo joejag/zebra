@@ -1,12 +1,11 @@
 (ns zebra.core-test
   (:use midje.sweet)
-  (:require [zebra.core :as subject]
+  (:require [zebra.core :refer :all]
             [zebra.rules :refer :all]))
 
 ;{:color nil :nationality nil :pet nil :drinks nil :smokes nil, :location nil}
 
-(defn legal? [suggestion rules]
-  (every? (fn [rule] (rule suggestion)) rules))
+
 
 (fact "is legal when simple rule says so"
       (legal? anything [(fn [_] true)]) => true)

@@ -53,4 +53,10 @@
   (let [[green-index _] (hash-containing-value houses :color "green")
         [ivory-index _] (hash-containing-value houses :color "ivory")]
     (if (not-any? nil? [green-index ivory-index])
-      (= (dec green-index) ivory-index)) true))
+      (= (dec green-index) ivory-index)
+      true)))
+
+(defn milk-is-drunk-in-the-middle-house [houses]
+  (let [[milk-index _] (hash-containing-value houses :drinks "milk")]
+    (if (not (nil? milk-index))
+      (= 2 milk-index) true)))

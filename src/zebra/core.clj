@@ -33,6 +33,7 @@
            rules/the-lucky-strike-smoker-drinks-orange-juice
            rules/the-japenese-smokes-parliaments
            rules/the-green-house-is-immediately-to-the-right-of-the-ivory-house
+           rules/milk-is-drunk-in-the-middle-house
            ]))
 
 (defn go [state]

@@ -70,4 +70,24 @@
 (facts "The green house is immediately to the right of the ivory house."
        (fact "legal"
              (the-green-house-is-immediately-to-the-right-of-the-ivory-house
-               [{:color "ivory"} {:color "green"}]) => true))
+               [{:color "ivory"} {:color "green"}]) => true)
+       (fact "illegal"
+             (the-green-house-is-immediately-to-the-right-of-the-ivory-house
+               [{:color "green"} {:color "ivory"}]) => false))
+
+(facts "Milk is drunk in the middle house."
+       (fact "legal"
+             (milk-is-drunk-in-the-middle-house
+               [{} {} {:drinks "milk"} {} {}]) => true)
+       (fact "illegal"
+             (milk-is-drunk-in-the-middle-house
+               [{} {} {} {:drinks "milk"} {}]) => false)
+       (fact "legal"
+             (milk-is-drunk-in-the-middle-house
+               [{} {} {} {} {}]) => true))
+
+
+
+
+
+

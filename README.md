@@ -7,7 +7,7 @@ Clojure approach to solving the zebra problem.
 > 3. The Spaniard owns the dog.
 > 4. Coffee is drunk in the green house.
 > 5. The Ukrainian drinks tea.
-> 6. --- The green house is immediately to the right of the ivory house.
+> 6. The green house is immediately to the right of the ivory house.
 > 7. The Old Gold smoker owns snails.
 > 8. Kools are smoked in the yellow house
 > 9. --- Milk is drunk in the middle house.

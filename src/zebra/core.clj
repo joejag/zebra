@@ -1,5 +1,6 @@
 (ns zebra.core
-  (:require [zebra.rules :as rules]
+  (:require [clojure.pprint :refer [pprint]]
+            [zebra.rules :as rules]
             [zebra.brute-forcer :as solver]))
 
 (def possibilties
@@ -37,17 +38,14 @@
            rules/the-norwegian-lives-in-the-first-house
            rules/the-man-who-smokes-chesterfields-lives-in-the-house-next-to-the-man-with-the-fox
            rules/kools-are-smoked-in-the-house-next-to-the-houses-where-the-horse-is-kept
-           rules/the-norwegian-lives-next-to-the-blue-house
-           ]))
+           rules/the-norwegian-lives-next-to-the-blue-house]))
 
 (defn go [state]
   (if (solver/finished? state zebra-legal?)
     (do (println "SOLVED!") state)
     (if (solver/impossible? state zebra-legal? possibilties)
       (println "IMPOSSIBLE!")
-      (do
-        ;(println "Working... " state)
-        (recur (solver/brute-force-progressor state zebra-legal? possibilties))))))
+      (recur (solver/brute-force-progressor state zebra-legal? possibilties)))))
 
 (defn -main [& _]
-  (go starting-state))
+  (pprint (go starting-state)))
